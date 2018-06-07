@@ -5,24 +5,20 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Character } from '../classes/character';
 import { Info } from '../classes/info';
+import { BaseResponse } from '../interfaces/base-response';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
-interface BaseResponse {
-  info: Info;
-  results: Character[];
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  private baseUrl = 'https://rickandmortyapi.com/api/';
+  readonly baseUrl = 'https://rickandmortyapi.com/api/';
 
-  private charactersUrl = `${this.baseUrl}character/`;
+  readonly charactersUrl = `${this.baseUrl}character/`;
 
   constructor(
     private http: HttpClient
