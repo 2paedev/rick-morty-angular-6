@@ -1,0 +1,16 @@
+<section>
+  <h2>Characters</h2>
+  <app-filter-search (dataFiltered)="updateCharacters($event)"></app-filter-search>
+  <ul>
+    <li *ngFor="let character of characters">
+      <a routerLink="/characters/{{character.id}}">
+        <span>{{character.id}}</span> {{character.name}}
+      </a>
+    </li>
+  </ul>
+  <div>
+    <span>{{totalResults}} results in {{totalPages}} pages</span>
+    <button type="button" (click)="goPrevPage()" [disabled]="prevPageUrl === ''">Previous Page</button>
+    <button type="button" (click)="goNextPage()" [disabled]="nextPageUrl === ''">Next Page</button>
+  </div>
+</section>
