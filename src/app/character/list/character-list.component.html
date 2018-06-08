@@ -1,10 +1,10 @@
-<section>
-  <h2>Character List</h2>
-  <app-character-filter (dataFiltered)="updateCharacters($event)"></app-character-filter>
+<section class="character-list-container">
+  <h2>{{ title }}</h2>
+  <!--app-character-filter (dataFiltered)="updateCharacters($event)"></app-character-filter-->
   <ul>
     <li *ngFor="let character of characters">
       <a routerLink="/characters/{{character.id}}">
-        <span>{{character.id}}</span> {{character.name}}
+        <span class="character">{{character.id}} {{character.name}}</span>
       </a>
     </li>
   </ul>

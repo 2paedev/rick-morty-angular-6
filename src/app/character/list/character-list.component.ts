@@ -14,6 +14,7 @@ export class CharacterListComponent implements OnInit {
   nextPageUrl: string;
   totalPages: number;
   totalResults: number;
+  title = 'Characters list';
 
   constructor(private apiService: CharacterApiService) {}
 
@@ -22,7 +23,9 @@ export class CharacterListComponent implements OnInit {
   }
 
   getCharacters(): void {
-    this.apiService.getCharacters().subscribe(response => this.formatResponse(response));
+    this.apiService.getCharacters().subscribe(response => {
+      this.formatResponse(response);
+    });
   }
 
   goPrevPage(): void {
