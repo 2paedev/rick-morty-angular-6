@@ -7,10 +7,10 @@ export class Character {
   species?: string;
   type?: string;
   gender?: string;
-  origin?: ObjectUrl;
+  origin?:  ObjectUrl;
   location?: ObjectUrl;
-  image?: string;
+  image?:   string;
   episode?: string[];
   url?: string;
-  created?: string;
+  created?:          string;
 }
