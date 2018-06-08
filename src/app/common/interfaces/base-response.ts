@@ -1,4 +1,4 @@
-import { Character } from '../classes/character';
+import { Character } from '../../character/common/character';
 import { Info } from '../classes/info';
 
 export interface BaseResponse {

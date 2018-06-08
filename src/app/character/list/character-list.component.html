@@ -1,6 +1,6 @@
 <section>
-  <h2>Characters</h2>
-  <app-filter-search (dataFiltered)="updateCharacters($event)"></app-filter-search>
+  <h2>Character List</h2>
+  <app-character-filter (dataFiltered)="updateCharacters($event)"></app-character-filter>
   <ul>
     <li *ngFor="let character of characters">
       <a routerLink="/characters/{{character.id}}">
