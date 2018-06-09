@@ -1,16 +1,22 @@
-<section class="character-list-container">
-  <h2>{{ title }}</h2>
-  <!--app-character-filter (dataFiltered)="updateCharacters($event)"></app-character-filter-->
-  <ul>
-    <li *ngFor="let character of characters">
-      <a routerLink="/characters/{{character.id}}">
-        <span class="character">{{character.id}} {{character.name}}</span>
-      </a>
-    </li>
-  </ul>
-  <div>
-    <span>{{totalResults}} results in {{totalPages}} pages</span>
+<section class="container">
+
+  <app-character-filter (dataFiltered)="updateCharacters($event)"></app-character-filter>
+
+  <div class="row justify-content-center">
+    <span class="summary">{{totalResults}} results in {{totalPages}} pages</span>
+  </div>
+
+  <div class="search-wrapper row justify-content-center">
     <button type="button" (click)="goPrevPage()" [disabled]="prevPageUrl === ''">Previous Page</button>
     <button type="button" (click)="goNextPage()" [disabled]="nextPageUrl === ''">Next Page</button>
   </div>
+
+  <div class="list-wrapper row justify-content-center">
+    <div class="character-block col-md-3 col-sm-6 text-center" *ngFor="let character of characters">
+      <a routerLink="/character/{{character.id}}">
+        <img src="{{character.image}}" /> {{character.name}}
+      </a>
+    </div>
+  </div>
+
 </section>

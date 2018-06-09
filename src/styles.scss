@@ -1,0 +1,14 @@
+@import 'styles-variables';
+
+@import '~bootstrap/scss/bootstrap';
+
+html,
+body {
+  background-color: #282d38 !important;
+  color: #3470b5 !important;
+  margin-bottom: 100px;
+}
+a:hover {
+  color: #75b6ff !important;
+  text-decoration: none !important;
+}

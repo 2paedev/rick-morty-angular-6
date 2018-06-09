@@ -1,25 +1,25 @@
-<div>
+<div class="filter-wrapper row justify-content-center">
   Filter by:
-  <select [(ngModel)]="selectedValue">    
+  <select [(ngModel)]="selectedValue">
     <option *ngFor="let option of filterOptions" [value]="option.value">{{option.name}}</option>
   </select>
   <div *ngIf="isFilteredByName()">
-    <input type="text" [(ngModel)]="filterName" placeholder="Enter the name to search"/>
+    <input type="text" [(ngModel)]="filterName" placeholder="Enter the name to search" />
     <button type="button" (click)="searchByNameFilter($event)">Filter</button>
   </div>
 
   <div *ngIf="isFilteredByStatus()">
-    
+
   </div>
 
   <div *ngIf="isFilteredBySpecies()">
-  
+
   </div>
 
   <div *ngIf="isFilteredByType()">
 
   </div>
-  
+
   <div *ngIf="isFilteredByGender()">
 
   </div>

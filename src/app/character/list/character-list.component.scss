@@ -1,0 +1,26 @@
+:host {
+  .search-wrapper {
+    margin-top: 40px;
+  }
+  .list-wrapper {
+    margin-top: 40px;
+  }
+  .summary {
+    margin-top: 20px;
+  }
+  .character-block {
+    margin: 30px 20px;
+    width: 200px;
+    max-width: 200px;
+    height: 200px;
+    max-height: 200px;
+    a,
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    img {
+      border: 4px solid #91dc8d;
+    }
+  }
+}
