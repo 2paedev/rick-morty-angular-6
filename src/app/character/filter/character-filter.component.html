@@ -1,11 +1,18 @@
-<div class="filter-wrapper row justify-content-center">
-  Filter by:
-  <select [(ngModel)]="selectedValue">
-    <option *ngFor="let option of filterOptions" [value]="option.value">{{option.name}}</option>
+<div class="select-container input-group">
+  <div class="input-group-prepend">
+    <label class="input-group-text filter-label" for="inputGroupSelect01">Filter by:</label>
+  </div>
+  <select class="custom-select filter-select" [(ngModel)]="selectedValue">
+    <option class="filter-option" *ngFor="let option of filterOptions" [value]="option.value">{{option.name}}</option>
   </select>
-  <div *ngIf="isFilteredByName()">
-    <input type="text" [(ngModel)]="filterName" placeholder="Enter the name to search" />
-    <button type="button" (click)="searchByNameFilter($event)">Filter</button>
+</div>
+
+<div class="search-container input-group">
+  <div class="by-name" *ngIf="isFilteredByName()">
+    <input type="text" class="form-control" [(ngModel)]="filterName" placeholder="Enter the name to search" />
+    <button type="button" class="input-group-btn btn" (click)="searchByNameFilter($event)">
+      <span class="oi oi-magnifying-glass"></span>
+    </button>
   </div>
 
   <div *ngIf="isFilteredByStatus()">

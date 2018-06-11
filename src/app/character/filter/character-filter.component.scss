@@ -1,2 +1,57 @@
 :host {
+  .select-container {
+    width: 35%;
+    margin: 0 auto;
+  }
+
+  .search-container {
+    margin-top: 15px;
+
+    & > div {
+      display: inline-flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .by-name {
+      input,
+      button {
+        background-color: #282d38;
+        color: #3470b5;
+        border-color: #3470b5;
+        border-radius: 0;
+      }
+      input {
+        width: 35%;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      button {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+    }
+  }
+
+  .filter-label,
+  .filter-select {
+    background-color: #282d38;
+    color: #3470b5;
+    border-color: #3470b5;
+  }
+
+  .filter-label {
+    border-top-left-radius: 5px;
+  }
+
+  .filter-select {
+    border-top-right-radius: 5px;
+  }
+
+  .filter-option {
+    &:hover {
+      background-color: #75b6ff !important;
+      color: red;
+    }
+  }
 }

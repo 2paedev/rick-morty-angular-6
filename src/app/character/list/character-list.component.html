@@ -7,8 +7,12 @@
   </div>
 
   <div class="search-wrapper row justify-content-center">
-    <button type="button" (click)="goPrevPage()" [disabled]="prevPageUrl === ''">Previous Page</button>
-    <button type="button" (click)="goNextPage()" [disabled]="nextPageUrl === ''">Next Page</button>
+    <button type="button" class="btn btn-outline-success page-button" (click)="goPrevPage()" [disabled]="prevPageUrl === ''">
+      <span class="oi oi-arrow-left"></span>
+    </button>
+    <button type="button" class="btn btn-outline-success page-button" (click)="goNextPage()" [disabled]="nextPageUrl === ''">
+      <span class="oi oi-arrow-right"></span>
+    </button>
   </div>
 
   <div class="list-wrapper row justify-content-center">
@@ -17,6 +21,15 @@
         <img src="{{character.image}}" /> {{character.name}}
       </a>
     </div>
+  </div>
+
+  <div class="search-wrapper row justify-content-center">
+    <button type="button" class="btn btn-outline-success page-button" (click)="goPrevPage()" [disabled]="prevPageUrl === ''">
+      <span class="oi oi-arrow-left"></span>
+    </button>
+    <button type="button" class="btn btn-outline-success page-button" (click)="goNextPage()" [disabled]="nextPageUrl === ''">
+      <span class="oi oi-arrow-right"></span>
+    </button>
   </div>
 
 </section>

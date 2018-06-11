@@ -39,13 +39,17 @@
     height: 60px;
     max-height: 60px;
     text-transform: uppercase;
-    font-size: 22px;
+    font-size: 18px;
 
     a {
-      margin: 0 10px;
+      color: #5eee57;
+      padding: 5px 10px;
+      border: 1px solid #5eee57;
 
       &:hover {
         font-size: 23px;
+        color: #a0f79c !important;
+        border: 1px solid #a0f79c;
       }
     }
   }
