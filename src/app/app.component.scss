@@ -1,5 +1,16 @@
 :host {
+  @import '../styles-variables';
+  @import '~bootstrap/scss/mixins';
+
   .header {
+    @include media-breakpoint-down(xs) {
+      h1 {
+        font-size: 20px;
+      }
+      img {
+        display: none;
+      }
+    }
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,11 +18,11 @@
     margin: 0 auto;
     max-height: 70px;
     height: 70px;
-    font-size: 34px;
     border-bottom: 3px solid #5eee57;
   }
 
   h1 {
+    font-size: 26px;
     margin: 0;
   }
 
