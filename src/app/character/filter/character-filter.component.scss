@@ -1,6 +1,12 @@
+@import '../../../styles-variables';
+@import '~bootstrap/scss/mixins';
+
 :host {
   .select-container {
-    width: 35%;
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+    width: 45%;
     margin: 0 auto;
   }
 
@@ -22,7 +28,10 @@
         border-radius: 0;
       }
       input {
-        width: 35%;
+        @include media-breakpoint-down(xs) {
+          width: 100%;
+        }
+        width: 45%;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
       }
@@ -46,12 +55,5 @@
 
   .filter-select {
     border-top-right-radius: 5px;
-  }
-
-  .filter-option {
-    &:hover {
-      background-color: #75b6ff !important;
-      color: red;
-    }
   }
 }

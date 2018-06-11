@@ -1,7 +1,11 @@
-<div *ngIf="character">
-  <h2>{{ character.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{character.id}}</div>
-  <div><span>id: </span>{{character.name}}</div>
-
-  <button (click)="goBack()">go back</button>
-</div>
+<section class="container" *ngIf="character">
+  <div>
+    <button type="button" class="btn btn-outline-success page-button" (click)="goBack()" [disabled]="prevPageUrl === ''">
+      <span class="oi oi-arrow-left"> Go Back</span>
+    </button>
+  </div>
+  <div class="main-info">
+    <h2>{{ character.name | uppercase }}</h2>
+    <img src="{{character.image}}" />
+  </div>
+</section>

@@ -1,0 +1,15 @@
+:host {
+  .main-info {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      margin-top: 10px;
+      border: 4px solid #91dc8d;
+      border-radius: 50%;
+    }
+  }
+}
