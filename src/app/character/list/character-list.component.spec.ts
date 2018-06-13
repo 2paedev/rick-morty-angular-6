@@ -7,7 +7,7 @@ import { CharacterListComponent } from './character-list.component';
 import { By } from '@angular/platform-browser';
 import { BaseResponse } from '../../common/interfaces/base-response';
 import { Character } from '../common/character';
-import { CharacterApiService } from '../common/character-api.service';
+import { CharacterApiService } from '../../common/services/character-api.service';
 
 describe('CharacterListComponent', () => {
   let comp: CharacterListComponent;
@@ -22,7 +22,7 @@ describe('CharacterListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [CharacterListComponent],
       imports: [HttpClientModule, RouterTestingModule],
-      providers: [CharacterApiService]
+      providers: [CharacterApiService],
     });
 
     fixture = TestBed.createComponent(CharacterListComponent);
@@ -35,9 +35,9 @@ describe('CharacterListComponent', () => {
         count: 493,
         next: 'https://rickandmortyapi.com/api/character/?page=2',
         pages: 25,
-        prev: ''
+        prev: '',
       },
-      results: [{ id: 1, name: 'A name 1' }, { id: 2, name: 'A name 2' }]
+      results: [{ id: 1, name: 'A name 1' }, { id: 2, name: 'A name 2' }],
     };
     mockCharacters = [{ id: 1, name: 'A name 1' }, { id: 2, name: 'A name 2' }];
   });

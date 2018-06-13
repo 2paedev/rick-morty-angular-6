@@ -1,12 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { FILTER_OPTIONS } from '../../common/constants';
-import { CharacterApiService } from '../common/character-api.service';
+import { CharacterApiService } from '../../common/services/character-api.service';
 
 @Component({
   selector: 'app-character-filter',
   templateUrl: './character-filter.component.html',
-  styleUrls: ['./character-filter.component.scss']
+  styleUrls: ['./character-filter.component.scss'],
 })
 export class CharacterFilterComponent implements OnInit {
   @Output() dataFiltered = new EventEmitter();
@@ -27,7 +27,7 @@ export class CharacterFilterComponent implements OnInit {
       { name: FILTER_OPTIONS.STATUS_TEXT, value: FILTER_OPTIONS.STATUS_ID },
       { name: FILTER_OPTIONS.SPECIES_TEXT, value: FILTER_OPTIONS.SPECIES_ID },
       { name: FILTER_OPTIONS.TYPE_TEXT, value: FILTER_OPTIONS.TYPE_ID },
-      { name: FILTER_OPTIONS.GENDER_TEXT, value: FILTER_OPTIONS.GENDER_ID }
+      { name: FILTER_OPTIONS.GENDER_TEXT, value: FILTER_OPTIONS.GENDER_ID },
     ];
   }
 

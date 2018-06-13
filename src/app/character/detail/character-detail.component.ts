@@ -3,17 +3,21 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Character } from '../common/character';
-import { CharacterApiService } from '../common/character-api.service';
+import { CharacterApiService } from '../../common/services/character-api.service';
 
 @Component({
   selector: 'app-character-detail',
   templateUrl: './character-detail.component.html',
-  styleUrls: ['./character-detail.component.scss']
+  styleUrls: ['./character-detail.component.scss'],
 })
 export class CharacterDetailComponent implements OnInit {
   @Input() character: Character;
 
-  constructor(private route: ActivatedRoute, private apiService: CharacterApiService, private location: Location) {}
+  constructor(
+    private route: ActivatedRoute,
+    private apiService: CharacterApiService,
+    private location: Location
+  ) {}
 
   ngOnInit() {
     this.getCharacter();

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Character } from '../common/character';
-import { CharacterApiService } from '../common/character-api.service';
+import { CharacterApiService } from '../../common/services/character-api.service';
 
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
-  styleUrls: ['./character-list.component.scss']
+  styleUrls: ['./character-list.component.scss'],
 })
 export class CharacterListComponent implements OnInit {
   characters: Character[];
@@ -29,11 +29,15 @@ export class CharacterListComponent implements OnInit {
   }
 
   goPrevPage(): void {
-    this.apiService.getCharacters(this.prevPageUrl).subscribe(response => this.formatResponse(response));
+    this.apiService
+      .getCharacters(this.prevPageUrl)
+      .subscribe(response => this.formatResponse(response));
   }
 
   goNextPage(): void {
-    this.apiService.getCharacters(this.nextPageUrl).subscribe(response => this.formatResponse(response));
+    this.apiService
+      .getCharacters(this.nextPageUrl)
+      .subscribe(response => this.formatResponse(response));
   }
 
   formatResponse(data): void {

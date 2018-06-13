@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Character } from './character';
+import { Character } from '../../character/common/character';
 import { BaseResponse } from '../../common/interfaces/base-response';
 
 const httpOptions = {
