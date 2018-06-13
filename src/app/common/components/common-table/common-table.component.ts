@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import { TableSource } from '../../interfaces/table-source';
 
@@ -9,8 +9,44 @@ import { TableSource } from '../../interfaces/table-source';
 })
 export class CommonTableComponent implements OnInit {
   @Input() dataSource: TableSource;
+  temp = [];
+  reorderable: Boolean = true;
+  isLoaded: Boolean = false;
+  //@ViewChild(DatatableComponent) table: DatatableComponent;
 
   constructor() {}
 
   ngOnInit() {}
+
+  dataIsLoaded() {
+    if (this.dataSource && !this.isLoaded) {
+      this.temp = this.dataSource.rows;
+      this.isLoaded = true;
+    }
+    return this.isLoaded;
+  }
+
+  updateFilterByName(event) {
+    const val = event.target.value.toLowerCase();
+    const temp = this.temp.filter(function(d) {
+      return d.name.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+    this.dataSource.rows = temp;
+  }
+
+  updateFilterByGender(event) {
+    const val = event.target.value.toLowerCase();
+    const temp = this.temp.filter(function(d) {
+      return d.gender.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+    this.dataSource.rows = temp;
+  }
+
+  updateFilterBySpecies(event) {
+    const val = event.target.value.toLowerCase();
+    const temp = this.temp.filter(function(d) {
+      return d.species.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+    this.dataSource.rows = temp;
+  }
 }

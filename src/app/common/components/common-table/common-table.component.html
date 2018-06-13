@@ -1,40 +1,11 @@
-<div class="table-responsive-sm">
-  <table class="table" *ngIf="dataSource">
-    <thead>
-      <tr>
-        <th *ngFor="let head of dataSource.tableHead" scope="col">{{ head }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let body of dataSource.tableBody">
-        <th *ngFor="let thRowBody of body.rowBody" [hidden]="!thRowBody.isTh" scope="row">{{ thRowBody.text }}</th>
-        <td *ngFor="let tdRowBody of body.rowBody" [hidden]="tdRowBody.isTh">{{ tdRowBody.text }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="container" *ngIf="dataIsLoaded()">
+  <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the name column...' (keyup)='updateFilterByName($event)'
+  />
+  <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the gender column...' (keyup)='updateFilterByGender($event)'
+  />
+  <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the species column...' (keyup)='updateFilterBySpecies($event)'
+  />
+  <ngx-datatable class="material" [rows]="dataSource.rows" [columns]="dataSource.columns" [columnMode]="'force'" [rowHeight]="'auto'"
+    [footerHeight]="50" [headerHeight]="50" [reorderable]="reorderable" [limit]="20">
+  </ngx-datatable>
 </div>
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">1</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">2</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#">3</a>
-    </li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>

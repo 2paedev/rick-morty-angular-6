@@ -22,4 +22,24 @@ export class DashboardComponent implements OnInit {
       this.dataSourceTable = this.tableDataFormatter.formatDataTable(response);
     });
   }
+
+  // getPrevPage() {
+  //   if (this.dataSourceTable) {
+  //     this.characterApiService
+  //       .getCharacters(this.dataSourceTable.prevPage)
+  //       .subscribe(response => {
+  //         this.dataSourceTable = this.tableDataFormatter.formatDataTable(response);
+  //       });
+  //   }
+  // }
+
+  // getNextPage() {
+  //   if (this.dataSourceTable) {
+  //     this.characterApiService
+  //       .getCharacters(this.dataSourceTable.nextPage)
+  //       .subscribe(response => {
+  //         this.dataSourceTable = this.tableDataFormatter.formatDataTable(response);
+  //       });
+  //   }
+  // }
 }

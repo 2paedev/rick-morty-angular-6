@@ -1,12 +1,15 @@
 export interface TableSource {
-  tableHead: String[];
-  tableBody: TableBody[];
+  columns: ColumnTable[];
+  rows: RowTable[];
 }
 
-class TableBody {
-  rowBody: RowBody[];
+class RowTable {
+  id: Number;
+  name: String;
+  gender: String;
+  species: String;
 }
-class RowBody {
-  text: String;
-  isTh?: Boolean;
+
+class ColumnTable {
+  name: String;
 }
