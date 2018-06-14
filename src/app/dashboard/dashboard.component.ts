@@ -11,6 +11,7 @@ import { CharacterApiService } from "../common/services/character-api.service";
 })
 export class DashboardComponent implements OnInit {
   dataSourceTable: ITableSource;
+  dataTableTemporal = [];
 
   constructor(
     private tableDataFormatter: TableDataFormatter,
@@ -24,6 +25,7 @@ export class DashboardComponent implements OnInit {
   getCharacters() {
     this.characterApiService.getCharacters().subscribe(response => {
       this.dataSourceTable = this.tableDataFormatter.formatDataTable(response);
+      this.dataTableTemporal = this.dataSourceTable.rows;
     });
   }
 
@@ -35,5 +37,29 @@ export class DashboardComponent implements OnInit {
           response
         );
       });
+  }
+
+  updateFilterByName(event) {
+    const val = event.target.value.toLowerCase();
+    const temp = this.dataTableTemporal.filter(d => {
+      return d.name.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+    this.dataSourceTable.rows = temp;
+  }
+
+  updateFilterByGender(event) {
+    const val = event.target.value.toLowerCase();
+    const temp = this.dataTableTemporal.filter(d => {
+      return d.gender.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+    this.dataSourceTable.rows = temp;
+  }
+
+  updateFilterBySpecies(event) {
+    const val = event.target.value.toLowerCase();
+    const temp = this.dataTableTemporal.filter(d => {
+      return d.species.toLowerCase().indexOf(val) !== -1 || !val;
+    });
+    this.dataSourceTable.rows = temp;
   }
 }

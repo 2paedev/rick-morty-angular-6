@@ -1,0 +1,27 @@
+:host {
+  $color-active: #3b873b;
+  $color-inactive: #b34646;
+  .badge {
+    text-transform: uppercase;
+    font-size: 14px;
+
+    &.active {
+      background-color: $color-active;
+
+      &.outline {
+        box-shadow: 0 0 2px 1px;
+        background: transparent;
+        color: $color-active;
+      }
+    }
+
+    &.inactive {
+      background-color: $color-inactive;
+      &.outline {
+        box-shadow: 0 0 2px 1px;
+        background: transparent;
+        color: $color-inactive;
+      }
+    }
+  }
+}

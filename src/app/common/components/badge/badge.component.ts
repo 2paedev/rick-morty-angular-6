@@ -7,13 +7,19 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class BadgeComponent implements OnInit {
   @Input() isActive: boolean;
+  @Input() isOutline: boolean;
   @Input() text: string;
 
   constructor() {}
 
   ngOnInit() {}
 
-  isActiveStyle() {
-    return this.isActive;
+  getClasses() {
+    return {
+      active: this.isActive,
+      inactive: !this.isActive,
+      outline: this.isOutline,
+      filled: !this.isOutline
+    };
   }
 }

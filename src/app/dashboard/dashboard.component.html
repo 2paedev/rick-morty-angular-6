@@ -1,15 +1,43 @@
 <section class="container">
-  <h2>BADGES</h2>
+  <h2>Badges</h2>
   <div class="badges">
     <app-badge text="en vigor"
-               [isActive]="true"></app-badge>
+               [isActive]="true"
+               [isOutline]="true"></app-badge>
     <app-badge text="anulada"
-               [isActive]="false"></app-badge>
+               [isActive]="false"
+               [isOutline]="true"></app-badge>
+    <app-badge text="en vigor 2"
+               [isActive]="true"
+               [isOutline]="false"></app-badge>
+    <app-badge text="anulada 2"
+               [isActive]="false"
+               [isOutline]="false"></app-badge>
   </div>
 
   <hr>
 
-  <h2>TABLE</h2>
+  <h2>Table with pagination, sorting and filtering</h2>
+  <div class="table-filter">
+    <input type='text'
+           style='padding:8px;margin:15px auto;width:30%;'
+           placeholder='Type to filter the name column...'
+           (keyup)='updateFilterByName($event)' />
+    <input type='text'
+           style='padding:8px;margin:15px auto;width:30%;'
+           placeholder='Type to filter the gender column...'
+           (keyup)='updateFilterByGender($event)' />
+    <input type='text'
+           style='padding:8px;margin:15px auto;width:30%;'
+           placeholder='Type to filter the species column...'
+           (keyup)='updateFilterBySpecies($event)' />
+  </div>
+
   <app-common-table [dataSource]="dataSourceTable"
                     (dataPagination)="getCharactersPaginated($event)"></app-common-table>
+
+  <hr>
+
+  <h2>Table with selection(checkbox), inputs and badges</h2>
+  <app-common-table [dataSource]="dataSourceTable"></app-common-table>
 </section>

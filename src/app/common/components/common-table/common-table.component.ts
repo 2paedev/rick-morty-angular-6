@@ -12,7 +12,6 @@ export class CommonTableComponent implements OnInit {
   @Input() dataSource: ITableSource;
   @Output() dataPagination = new EventEmitter();
   page = new Page();
-  temp = [];
   reorderable = true;
   isLoaded = false;
 
@@ -25,35 +24,10 @@ export class CommonTableComponent implements OnInit {
 
   dataIsLoaded() {
     if (this.dataSource && !this.isLoaded) {
-      this.temp = this.dataSource.rows;
       this.setDataInPagination({ offset: 0 });
       this.isLoaded = true;
     }
     return this.isLoaded;
-  }
-
-  updateFilterByName(event) {
-    const val = event.target.value.toLowerCase();
-    const temp = this.temp.filter(d => {
-      return d.name.toLowerCase().indexOf(val) !== -1 || !val;
-    });
-    this.dataSource.rows = temp;
-  }
-
-  updateFilterByGender(event) {
-    const val = event.target.value.toLowerCase();
-    const temp = this.temp.filter(d => {
-      return d.gender.toLowerCase().indexOf(val) !== -1 || !val;
-    });
-    this.dataSource.rows = temp;
-  }
-
-  updateFilterBySpecies(event) {
-    const val = event.target.value.toLowerCase();
-    const temp = this.temp.filter(d => {
-      return d.species.toLowerCase().indexOf(val) !== -1 || !val;
-    });
-    this.dataSource.rows = temp;
   }
 
   setDataInPagination(pageInfo) {
@@ -61,9 +35,5 @@ export class CommonTableComponent implements OnInit {
     this.page.totalElements = this.dataSource.infoPage.count;
     this.page.totalPages = this.dataSource.infoPage.pages;
     this.dataPagination.emit(this.page.pageNumber);
-    // this.serverResultsService.getResults(this.page).subscribe(pagedData => {
-    //   this.page = pagedData.page;
-    //   this.rows = pagedData.data;
-    // });
   }
 }
