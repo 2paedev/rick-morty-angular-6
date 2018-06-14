@@ -1,5 +1,15 @@
 <section class="container">
-  <!-- <app-common-table [dataSource]="dataSourceTable" (prevPage)="getPrevPage()" (nextPage)="getNextPage()"></app-common-table> -->
+  <h2>BADGES</h2>
+  <div class="badges">
+    <app-badge text="en vigor"
+               [isActive]="true"></app-badge>
+    <app-badge text="anulada"
+               [isActive]="false"></app-badge>
+  </div>
+
+  <hr>
+
+  <h2>TABLE</h2>
   <app-common-table [dataSource]="dataSourceTable"
                     (dataPagination)="getCharactersPaginated($event)"></app-common-table>
 </section>

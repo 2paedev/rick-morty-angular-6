@@ -1,0 +1,16 @@
+:host {
+  h2 {
+    margin-top: 30px;
+  }
+  hr {
+    background-color: #5eee57;
+  }
+  .badges {
+    display: flex;
+    flex-direction: row;
+
+    & > app-badge {
+      margin: 10px !important;
+    }
+  }
+}

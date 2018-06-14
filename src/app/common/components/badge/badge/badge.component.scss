@@ -1,0 +1,18 @@
+:host {
+  .badge {
+    text-transform: uppercase;
+    font-size: 14px;
+
+    &.active {
+      box-shadow: 0 0 2px 1px #3b873b;
+      color: #3b873b;
+      background: transparent;
+    }
+
+    &.inactive {
+      box-shadow: 0 0 2px 1px #b34646;
+      color: #b34646;
+      background: transparent;
+    }
+  }
+}
