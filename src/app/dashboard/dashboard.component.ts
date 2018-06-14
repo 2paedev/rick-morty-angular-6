@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { TableSource } from '../common/interfaces/table-source';
-import { CharacterApiService } from '../common/services/character-api.service';
-import { TableDataFormatter } from '../common/formatters/table-data-formatter';
+import { TableDataFormatter } from "../common/formatters/table-data-formatter";
+import { ITableSource } from "../common/interfaces/table-source";
+import { CharacterApiService } from "../common/services/character-api.service";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.scss"]
 })
 export class DashboardComponent implements OnInit {
-  dataSourceTable: TableSource;
+  dataSourceTable: ITableSource;
 
   constructor(
     private tableDataFormatter: TableDataFormatter,

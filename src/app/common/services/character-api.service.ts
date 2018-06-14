@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Character } from '../../character/common/character';
-import { BaseResponse } from '../../common/interfaces/base-response';
+import { IBaseResponse } from '../../common/interfaces/base-response';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -20,13 +20,13 @@ export class CharacterApiService {
 
   constructor(private http: HttpClient) {}
 
-  getCharacters(urlToFetchData?: string): Observable<BaseResponse> {
+  getCharacters(urlToFetchData?: string): Observable<IBaseResponse> {
     let url = this.charactersUrl;
     if (urlToFetchData) {
       url = urlToFetchData;
     }
     return this.http
-      .get<BaseResponse>(url)
+      .get<IBaseResponse>(url)
       .pipe(
         tap(
           characters => console.log(`fetched characters`),
@@ -35,10 +35,13 @@ export class CharacterApiService {
       );
   }
 
-  getCharactersFiltered(labelToFilter, textToFilter): Observable<BaseResponse> {
+  getCharactersFiltered(
+    labelToFilter,
+    textToFilter
+  ): Observable<IBaseResponse> {
     const url = `${this.charactersUrl}?${labelToFilter}=${textToFilter}`;
     return this.http
-      .get<BaseResponse>(url)
+      .get<IBaseResponse>(url)
       .pipe(
         tap(
           characters => console.log(`fetched characters filtered`),

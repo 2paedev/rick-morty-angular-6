@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Character } from '../common/character';
 import { CharacterApiService } from '../../common/services/character-api.service';
+import { Character } from '../common/character';
 
 @Component({
   selector: 'app-character-list',

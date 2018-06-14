@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { FILTER_OPTIONS } from '../../common/constants';
 import { CharacterApiService } from '../../common/services/character-api.service';

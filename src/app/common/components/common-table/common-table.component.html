@@ -1,11 +1,29 @@
-<div class="container" *ngIf="dataIsLoaded()">
-  <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the name column...' (keyup)='updateFilterByName($event)'
-  />
-  <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the gender column...' (keyup)='updateFilterByGender($event)'
-  />
-  <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the species column...' (keyup)='updateFilterBySpecies($event)'
-  />
-  <ngx-datatable class="material" [rows]="dataSource.rows" [columns]="dataSource.columns" [columnMode]="'force'" [rowHeight]="'auto'"
-    [footerHeight]="50" [headerHeight]="50" [reorderable]="reorderable" [limit]="20">
+<div class="container"
+     *ngIf="dataIsLoaded()">
+  <input type='text'
+         style='padding:8px;margin:15px auto;width:30%;'
+         placeholder='Type to filter the name column...'
+         (keyup)='updateFilterByName($event)' />
+  <input type='text'
+         style='padding:8px;margin:15px auto;width:30%;'
+         placeholder='Type to filter the gender column...'
+         (keyup)='updateFilterByGender($event)' />
+  <input type='text'
+         style='padding:8px;margin:15px auto;width:30%;'
+         placeholder='Type to filter the species column...'
+         (keyup)='updateFilterBySpecies($event)' />
+  <ngx-datatable class="material"
+                 [rows]="dataSource.rows"
+                 [columns]="dataSource.columns"
+                 [columnMode]="'force'"
+                 [rowHeight]="'auto'"
+                 [footerHeight]="50"
+                 [headerHeight]="50"
+                 [reorderable]="reorderable"
+                 [limit]="20"
+                 [externalPaging]="true"
+                 [count]="page.totalElements"
+                 [offset]="page.pageNumber"
+                 (page)='setPage($event)'>
   </ngx-datatable>
 </div>

@@ -1,15 +1,15 @@
-export interface TableSource {
+export interface ITableSource {
   columns: ColumnTable[];
   rows: RowTable[];
 }
 
 class RowTable {
-  id: Number;
-  name: String;
-  gender: String;
-  species: String;
+  id: number;
+  name: string;
+  gender: string;
+  species: string;
 }
 
 class ColumnTable {
-  name: String;
+  name: string;
 }

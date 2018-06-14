@@ -1,18 +1,17 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from "@angular/core";
 
-import { TableSource } from '../../interfaces/table-source';
+import { ITableSource } from "../../interfaces/table-source";
 
 @Component({
-  selector: 'app-common-table',
-  templateUrl: './common-table.component.html',
-  styleUrls: ['./common-table.component.scss'],
+  selector: "app-common-table",
+  templateUrl: "./common-table.component.html",
+  styleUrls: ["./common-table.component.scss"]
 })
 export class CommonTableComponent implements OnInit {
-  @Input() dataSource: TableSource;
+  @Input() dataSource: ITableSource;
   temp = [];
-  reorderable: Boolean = true;
-  isLoaded: Boolean = false;
-  //@ViewChild(DatatableComponent) table: DatatableComponent;
+  reorderable = true;
+  isLoaded = false;
 
   constructor() {}
 
@@ -28,7 +27,7 @@ export class CommonTableComponent implements OnInit {
 
   updateFilterByName(event) {
     const val = event.target.value.toLowerCase();
-    const temp = this.temp.filter(function(d) {
+    const temp = this.temp.filter(d => {
       return d.name.toLowerCase().indexOf(val) !== -1 || !val;
     });
     this.dataSource.rows = temp;
@@ -36,7 +35,7 @@ export class CommonTableComponent implements OnInit {
 
   updateFilterByGender(event) {
     const val = event.target.value.toLowerCase();
-    const temp = this.temp.filter(function(d) {
+    const temp = this.temp.filter(d => {
       return d.gender.toLowerCase().indexOf(val) !== -1 || !val;
     });
     this.dataSource.rows = temp;
@@ -44,7 +43,7 @@ export class CommonTableComponent implements OnInit {
 
   updateFilterBySpecies(event) {
     const val = event.target.value.toLowerCase();
-    const temp = this.temp.filter(function(d) {
+    const temp = this.temp.filter(d => {
       return d.species.toLowerCase().indexOf(val) !== -1 || !val;
     });
     this.dataSource.rows = temp;

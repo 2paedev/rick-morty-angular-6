@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { BaseResponse } from '../interfaces/base-response';
 import { Character } from '../../character/common/character';
+import { IBaseResponse } from '../interfaces/base-response';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TableDataFormatter {
-  formatDataTable(data: BaseResponse) {
+  formatDataTable(data: IBaseResponse) {
     const dataFormatted = {
       rows: [],
       columns: [],

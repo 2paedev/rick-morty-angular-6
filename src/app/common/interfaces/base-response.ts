@@ -1,6 +1,6 @@
 import { Character } from '../../character/common/character';
 
-export interface BaseResponse {
+export interface IBaseResponse {
   info: Info;
   results: Character[];
 }

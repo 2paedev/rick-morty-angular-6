@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CharacterListComponent } from './list/character-list.component';
 import { CharacterDetailComponent } from './detail/character-detail.component';
+import { CharacterListComponent } from './list/character-list.component';
 
 const routes: Routes = [
   { path: '', component: CharacterListComponent },

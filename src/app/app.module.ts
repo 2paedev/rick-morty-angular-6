@@ -1,12 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 
-import { AppComponent } from './app.component';
+import { AppComponent } from "./app.component";
 
-import { AppRoutingModule } from './/app-routing.module';
-import { SharedModule } from './common/shared.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { AppRoutingModule } from ".//app-routing.module";
+import { SharedModule } from "./common/shared.module";
+import { DashboardModule } from "./dashboard/dashboard.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,10 +15,10 @@ import { DashboardModule } from './dashboard/dashboard.module';
     SharedModule,
     DashboardModule,
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
 
