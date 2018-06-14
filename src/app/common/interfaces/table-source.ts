@@ -1,6 +1,9 @@
+import { Info } from "./base-response";
+
 export interface ITableSource {
   columns: ColumnTable[];
   rows: RowTable[];
+  infoPage: Info;
 }
 
 class RowTable {
