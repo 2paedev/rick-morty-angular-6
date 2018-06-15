@@ -1,39 +1,46 @@
-import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, Input, OnInit, EventEmitter } from "@angular/core";
 
 import { ITableSource } from "../../interfaces/table-source";
-import { BasePagination, Page } from "../../interfaces/base-pagination";
 
 @Component({
-  selector: "app-common-table",
-  templateUrl: "./common-table.component.html",
-  styleUrls: ["./common-table.component.scss"]
+  selector: 'app-common-table',
+  templateUrl: './common-table.component.html',
+  styleUrls: ['./common-table.component.scss']
 })
 export class CommonTableComponent implements OnInit {
+
   @Input() dataSource: ITableSource;
-  @Output() dataPagination = new EventEmitter();
-  page = new Page();
   reorderable = true;
   isLoaded = false;
+  editing = {};
+  rows = [];
 
-  constructor() {
-    this.page.pageNumber = 0;
-    this.page.size = 20;
-  }
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   dataIsLoaded() {
+    this.isLoaded = false;
     if (this.dataSource && !this.isLoaded) {
-      this.setDataInPagination({ offset: 0 });
       this.isLoaded = true;
+      this.rows = this.dataSource.rows;
     }
     return this.isLoaded;
   }
 
-  setDataInPagination(pageInfo) {
-    this.page.pageNumber = pageInfo.offset;
-    this.page.totalElements = this.dataSource.infoPage.count;
-    this.page.totalPages = this.dataSource.infoPage.pages;
-    this.dataPagination.emit(this.page.pageNumber);
+  updateValue(event, cell, rowIndex) {
+    this.editing[rowIndex + '-' + cell] = false;
+    this.rows[rowIndex][cell] = event.target.value;
+    this.rows = [...this.rows];
   }
+
+  checkGroup(event, row) {
+    row.selected = 0;
+
+    if (event.target.checked)
+      if (event.target.value === '0') {
+        row.selected = 1;
+      }
+  }
+
 }

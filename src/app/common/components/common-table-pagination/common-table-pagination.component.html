@@ -1,0 +1,17 @@
+<div class="container"
+     *ngIf="dataIsLoaded()">
+  <ngx-datatable class="material"
+                 [rows]="dataSource.rows"
+                 [columns]="dataSource.columns"
+                 [columnMode]="'force'"
+                 [rowHeight]="'auto'"
+                 [footerHeight]="50"
+                 [headerHeight]="50"
+                 [reorderable]="reorderable"
+                 [limit]="20"
+                 [externalPaging]="true"
+                 [count]="page.totalElements"
+                 [offset]="page.pageNumber"
+                 (page)='setDataInPagination($event)'>
+  </ngx-datatable>
+</div>

@@ -33,11 +33,24 @@
            (keyup)='updateFilterBySpecies($event)' />
   </div>
 
-  <app-common-table [dataSource]="dataSourceTable"
-                    (dataPagination)="getCharactersPaginated($event)"></app-common-table>
+  <app-common-table-pagination [dataSource]="dataSourceTable"
+                               (dataPagination)="getCharactersPaginated($event)"></app-common-table-pagination>
 
   <hr>
 
   <h2>Table with selection(checkbox), inputs and badges</h2>
-  <app-common-table [dataSource]="dataSourceTable"></app-common-table>
+  <div class="comments-block">
+    <h4>Comments added in table:</h4>
+    <span *ngFor="let row of dataSourceTable.rows">{{row.comment}}
+    </span>
+  </div>
+
+  <div class="selection-block">
+    <h4>Selection rows in table:</h4>
+    <span *ngFor="let row of dataSourceTable.rows"
+          [hidden]="!row.selected">{{row.id}}
+    </span>
+  </div>
+
+  <app-common-table [(dataSource)]="dataSourceTable"></app-common-table>
 </section>

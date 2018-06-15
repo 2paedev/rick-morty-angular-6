@@ -1,17 +1,67 @@
 <div class="container"
      *ngIf="dataIsLoaded()">
-  <ngx-datatable class="material"
+
+  <ngx-datatable #myTable
+                 class='material expandable'
                  [rows]="dataSource.rows"
-                 [columns]="dataSource.columns"
                  [columnMode]="'force'"
-                 [rowHeight]="'auto'"
-                 [footerHeight]="50"
                  [headerHeight]="50"
-                 [reorderable]="reorderable"
-                 [limit]="20"
-                 [externalPaging]="true"
-                 [count]="page.totalElements"
-                 [offset]="page.pageNumber"
-                 (page)='setDataInPagination($event)'>
+                 [footerHeight]="50"
+                 [rowHeight]="40"
+                 [limit]="20">
+    <ngx-datatable-column name="Selection"
+                          prop=""
+                          editable="true"
+                          frozenLeft="True">
+      <ng-template ngx-datatable-cell-template
+                   let-rowIndex="rowIndex"
+                   let-value="value"
+                   let-row="row"
+                   let-group="group">
+        <input type="checkbox"
+               id="check-{{rowIndex}}"
+               name="{{rowIndex}}"
+               value="0"
+               class="expectedpayment"
+               (change)="checkGroup($event, row)"
+               [checked]="row.selected===1">
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Id"
+                          prop="id"></ngx-datatable-column>
+    <ngx-datatable-column name="Name"
+                          prop="name"></ngx-datatable-column>
+    <ngx-datatable-column name="Gender"
+                          prop="gender"></ngx-datatable-column>
+    <ngx-datatable-column name="Species"
+                          prop="species"></ngx-datatable-column>
+    <ngx-datatable-column name="Comment"
+                          prop="comment">
+      <ng-template ngx-datatable-cell-template
+                   let-rowIndex="rowIndex"
+                   let-value="value"
+                   let-row="row"
+                   let-group="group"
+                   let-rowHeight="rowHeight">
+        <input autofocus
+               (blur)="updateValue($event, 'comment', rowIndex)"
+               type="text"
+               name="comment"
+               [value]="value" />
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column name="Badge"
+                          prop="">
+      <ng-template ngx-datatable-cell-template
+                   let-rowIndex="rowIndex"
+                   let-value="value"
+                   let-row="row"
+                   let-group="group"
+                   let-rowHeight="rowHeight">
+        <app-badge text="en vigor"
+                   [isActive]="true"
+                   [isOutline]="true"></app-badge>
+      </ng-template>
+    </ngx-datatable-column>
   </ngx-datatable>
 </div>
