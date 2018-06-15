@@ -15,6 +15,54 @@
                [isOutline]="false"></app-badge>
   </div>
 
+  <h2>Simple datepicker</h2>
+  <div class="datepickers-blocks">
+    <ngb-datepicker #dp
+                    [(ngModel)]="model"
+                    (navigate)="date = $event.next"></ngb-datepicker>
+
+    <hr/>
+
+    <button class="btn btn-sm btn-outline-primary mr-2"
+            (click)="selectToday()">Select Today</button>
+    <button class="btn btn-sm btn-outline-primary mr-2"
+            (click)="dp.navigateTo()">To current month</button>
+    <button class="btn btn-sm btn-outline-primary mr-2"
+            (click)="dp.navigateTo({year: 2013, month: 2})">To Feb 2013</button>
+
+    <hr/>
+
+    <pre>Month: {{ date.month }}/{{ date.year }}</pre>
+    <pre>Model: {{ model | json }}</pre>
+  </div>
+
+  <hr>
+
+  <h2>Popup datepicker</h2>
+  <form class="form-inline">
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control"
+               placeholder="yyyy-mm-dd"
+               name="dp"
+               [(ngModel)]="model"
+               ngbDatepicker
+               #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary"
+                  (click)="d.toggle()"
+                  type="button">
+            <img src="img/calendar-icon.svg"
+                 style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <hr/>
+  <pre>Model: {{ model | json }}</pre>
+
   <hr>
 
   <h2>Table with pagination, sorting and filtering</h2>
@@ -39,13 +87,15 @@
   <hr>
 
   <h2>Table with selection(checkbox), inputs and badges</h2>
-  <div class="comments-block">
+  <div class="comments-block"
+       *ngIf="dataSourceTable">
     <h4>Comments added in table:</h4>
     <span *ngFor="let row of dataSourceTable.rows">{{row.comment}}
     </span>
   </div>
 
-  <div class="selection-block">
+  <div class="selection-block"
+       *ngIf="dataSourceTable">
     <h4>Selection rows in table:</h4>
     <span *ngFor="let row of dataSourceTable.rows"
           [hidden]="!row.selected">{{row.id}}

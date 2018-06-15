@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 import { TableDataFormatter } from "../common/formatters/table-data-formatter";
 import { ITableSource } from "../common/interfaces/table-source";
@@ -13,10 +14,14 @@ export class DashboardComponent implements OnInit {
   dataSourceTable: ITableSource;
   dataTableTemporal = [];
 
+  now = new Date();
+  model: NgbDateStruct;
+  date: { year: number, month: number };
+
   constructor(
     private tableDataFormatter: TableDataFormatter,
     private characterApiService: CharacterApiService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getCharacters();
@@ -61,5 +66,9 @@ export class DashboardComponent implements OnInit {
       return d.species.toLowerCase().indexOf(val) !== -1 || !val;
     });
     this.dataSourceTable.rows = temp;
+  }
+
+  selectToday() {
+    this.model = { year: this.now.getFullYear(), month: this.now.getMonth() + 1, day: this.now.getDate() };
   }
 }
